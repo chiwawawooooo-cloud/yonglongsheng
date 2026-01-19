@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永隆陞建設 | 景上居 - 北屯十期頂級電梯別墅</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS 樣式表 --- */
+        :root {
+            --yls-gold: #c5a66d;
+            --yls-navy: #101d2d;
+            --yls-bg: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 30px 60px rgba(0,0,0,0.12);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            margin: 0; background-color: var(--yls-bg); 
+            color: #333; line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        nav { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+        }
+        .logo { 
+            font-size: 1.4rem; font-weight: 900; color: var(--yls-navy); 
+            letter-spacing: 3px; text-decoration: none;
+        }
+
+        /* 英雄區塊 */
+        .hero { 
+            background: linear-gradient(rgba(16, 29, 45, 0.4), rgba(16, 29, 45, 0.4)), 
+                        url('https://ppt.cc/fRZxNx@.jpg') center/cover no-repeat; 
+            height: 65vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; color: #fff; text-align: center;
+        }
+        .hero h1 { 
+            font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 10px; 
+            margin: 0; text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .hero p { font-size: 1.2rem; letter-spacing: 5px; margin-top: 15px; opacity: 0.9; }
+
+        /* 主容器 */
+        .container { 
+            max-width: 1300px; margin: -100px auto 60px; 
+            padding: 0 20px; position: relative; z-index: 10; 
+        }
+
+        .main-card { 
+            display: flex; flex-wrap: wrap; background: #fff; 
+            border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); 
+        }
+
+        /* 像簿 */
+        .gallery-wrap { flex: 1.4; background: #1a1a1a; padding: 25px; }
+        .featured-img { 
+            width: 100%; height: 500px; border-radius: 12px;
+            background-size: cover; background-position: center;
+            transition: opacity 0.4s ease;
+        }
+        .thumb-grid { 
+            display: grid; grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; margin-top: 20px;
+        }
+        .thumb { 
+            aspect-ratio: 16/10; border-radius: 6px; cursor: pointer; 
+            opacity: 0.5; transition: var(--transition);
+            background-size: cover; background-position: center;
+            border: 2px solid transparent;
+        }
+        .thumb:hover, .thumb.active { opacity: 1; border-color: var(--yls-gold); transform: translateY(-3px); }
+
+        /* 資訊區 */
+        .info-box { flex: 1; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        .price-tag { 
+            background: var(--yls-gold); color: #fff; 
+            padding: 8px 25px; border-radius: 4px; 
+            font-weight: 700; font-size: 1.2rem; margin-bottom: 20px; width: fit-content;
+        }
+        h2 { font-size: 2.5rem; color: var(--yls-navy); margin: 0; font-weight: 900; }
+        .sub-title { 
+            font-size: 1.1rem; color: var(--yls-gold); font-weight: 700; 
+            margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;
+        }
+
+        .specs { list-style: none; padding: 0; margin-bottom: 40px; }
+        .specs li { 
+            margin-bottom: 15px; display: flex; border-bottom: 1px solid #
