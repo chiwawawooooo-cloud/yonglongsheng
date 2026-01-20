@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>永隆陞建設｜景上居 - 北屯十期頂級電梯別墅</title>
+
+  <!-- SEO / Social -->
+  <meta name="description" content="永隆陞建設｜景上居：北屯十期核心，精品電梯店墅，全新完工。預約賞屋：0938397486" />
+  <meta property="og:title" content="永隆陞建設｜景上居 - 北屯十期頂級電梯別墅" />
+  <meta property="og:description" content="十期核心 / 精品電梯店墅 / 全新完工。立即預約賞屋。" />
+  <meta property="og:image" content="images/img-09-cover.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --yls-gold:#c5a66d;
+      --yls-gold-dark:#a68b55;
+      --yls-navy:#101d2d;
+      --yls-light:#f4f7f9;
+      --card-shadow:0 30px 60px rgba(0,0,0,0.12);
+      --transition:all .4s cubic-bezier(.165,.84,.44,1);
+      --radius:20px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family:'Noto Sans TC',sans-serif;
+      margin:0;
+      background:var(--yls-light);
+      color:#333;
+      line-height:1.75;
+    }
+
+    nav{
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
+      padding:14px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 15px rgba(0,0,0,.05);
+    }
+    .logo{
+      font-size:1.2rem;
+      font-weight:900;
+      color:var(--yls-navy);
+      letter-spacing:3px;
+      text-decoration:none;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .nav-links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color:#4a5568;
+      font-weight:700;
+      font-size:.95rem;
+      padding:10px 12px;
+      border-radius:12px;
+      transition:var(--transition);
+    }
+    .nav-links a:hover{
+      background:#eef2f6;
+      color:var(--yls-navy);
+      transform:translateY(-1px);
+    }
+    .nav-phone{
+      background:var(--yls-gold) !important;
+      color:var(--yls-navy) !important;
+      font-weight:900;
+    }
+    .nav-phone:hover{
+      background:var(--yls-gold-dark) !important;
+      transform:scale(1.05);
+    }
+    .nav-cta{
+      background:var(--yls-navy) !important;
+      color:#fff !important;
+    }
+    .nav-cta:hover{ background:#000 !important; }
+
+    .hero{
+      background:
+        linear-gradient(rgba(16,29,45,.45), rgba(16,29,45,.45)),
+        url('images/img-09-cover.jpg') center/cover no-repeat;
+      height:72vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      color:#fff;
+      text-align:center;
+      padding:0 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero h1{
+      font-size:clamp(2rem, 5vw, 3.6rem);
+      letter-spacing:10px;
+      margin:0 0 10px;
+      text-shadow:0 5px 20px rgba(0,0,0,.3);
+      font-weight:900;
+    }
+    .hero p{
+      margin:0 0 28px;
+      font-size:1.1rem;
+      letter-spacing:4px;
+      opacity:.95;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:800;
+      transition:var(--transition);
+      border:1px solid rgba(255,255,255,.28);
+      color:#fff;
+      background:rgba(255,255,255,.10);
+    }
+    .pill:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.18);
+    }
+    .pill.primary{
+      background:var(--yls-gold);
+      border-color:transparent;
+      color:#fff;
+    }
+    .pill.primary:hover{ background:var(--yls-gold-dark); }
+
+    .container{
+      max-width:1300px;
+      margin:-110px auto 70px;
+      padding:0 20px;
+      position:relative;
+      z-index:10;
+    }
+    .main-card{
+      display:flex;
+      flex-wrap:wrap;
+      background:#fff;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--card-shadow);
+      opacity:0;
+      transform:translateY(30px);
+      transition:var(--transition);
+    }
+    .main-card.visible{ opacity:1; transform:translateY(0); }
+
+    .gallery-wrap{
+      flex:1.4;
+      background:#0b0f14;
+      padding:20px;
+    }
+    .featured-img{
+      width:100%;
+      height:560px;
+      border-radius:14px;
+      background-size:cover;
+      background-position:center;
+      transition:opacity .35s ease, transform .35s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .featured-badge{
+      position:absolute;
+      left:14px;
+      top:14px;
+      background:rgba(16,29,45,.75);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:.9rem;
+      letter-spacing:2px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .thumb-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .thumb{
+      aspect-ratio:16/10;
+      border-radius:10px;
+      cursor:pointer;
+      opacity:.55;
+      transition:var(--transition);
+      background-size:cover;
+      background-position:center;
+      border:2px solid transparent;
+      position:relative;
+    }
+    .thumb:hover, .thumb.active{
+      opacity:1;
+      border-color:var(--yls-gold);
+      transform:translateY(-2px);
+    }
+
+    .info-box{ flex:1; padding:60px 52px; }
+    .price-tag{
+      display:inline-block;
+      background:var(--yls-gold);
+      color:#fff;
+      padding:9px 26px;
+      border-radius:8px;
+      font-weight:900;
+      font-size:1.05rem;
+      margin-bottom:18px;
+      letter-spacing:1px;
+    }
+    h2{ font-size:2.5rem; color:var(--yls-navy); margin:0; font-weight:900; }
+    .sub-title{
+      font-size:1.06rem;
+      color:var(--yls-gold-dark);
+      font-weight:900;
+      margin:10px 0 26px;
+      display:block;
+      letter-spacing:1px;
+    }
+    .specs{ list-style:none; padding:0; margin:0 0 30px; }
+    .specs li{
+      margin-bottom:14px;
+      padding-bottom:12px;
+      border-bottom:1px solid #eee;
+      display:flex;
+      gap:12px;
+    }
+    .specs b{ color:var(--yls-navy); width:92px; flex-shrink:0; }
+    .specs span{ color:#667085; font-weight:600; }
+
+    .actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:18px;
+    }
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:900;
+      transition:var(--transition);
+      border:1px solid #e9eef5;
+      background:#fff;
+      color:#111827;
+    }
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 20px rgba(0,0,0,.10);
+    }
+    .btn-call{ background:var(--yls-navy); color:#fff; border-color:transparent; }
+    .btn-call:hover{ background:#000; }
+    .btn-fb{ background:#f0f2f5; color:#1877F2; }
+
+    .section{
+      margin-top:26px;
+      padding:36px 28px;
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:0 18px 40px rgba(0,0,0,.08);
+      opacity:0;
+      transform:translateY(22px);
+      transition:var(--transition);
+    }
+    .section.visible{ opacity:1; transform:translateY(0); }
+    .section h3{
+      margin:0 0 14px;
+      font-size:1.6rem;
+      color:var(--yls-navy);
+      font-weight:900;
+      letter-spacing:1px;
+    }
+    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 0; }
+    .chip{
+      background:#f6f8fb;
+      border:1px solid #e9eef5;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:800;
+      color:#445;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid #eef2f6;
+      background:#fbfcfe;
+      border-radius:18px;
+      padding:18px;
+    }
+    .card h4{
+      margin:0 0 6px;
+      color:var(--yls-navy);
+      font-weight:900;
+    }
+    .muted{ color:#6b7280; font-weight:600; }
+
+    .map-embed{
+      width:100%;
+      height:380px;
+      border:0;
+      border-radius:18px;
+      overflow:hidden;
+    }
+
+    .gallery-sections{
+      max-width:1200px;
+      margin:26px auto 0;
+      padding:0 20px;
+    }
+    .gallery-sections h2{
+      font-size:2rem;
+      margin-bottom:20px;
+      border-left:6px solid #bfa76a;
+      padding-left:12px;
+      color:var(--yls-navy);
+      font-weight:900;
+    }
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .gallery img{
+      width:100%;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+    .map img{
+      width:100%;
+      border-radius:18px;
+    }
+
+    footer{
+      background:var(--yls-navy);
+      color:#a0aab5;
+      padding:60px 20px;
+      text-align:center;
+      font-size:.92rem;
+      margin-top:60px;
+    }
+    footer p{ margin:6px 0; }
+    footer a{ color:#d1d5db; text-decoration:none; font-weight:800; }
+    footer a:hover{ text-decoration:underline; }
+
+    .floating-reserve {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #c5a66d, #a68b55);
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      transition: all .3s ease;
+    }
+    .floating-reserve i { font-size: 1.1rem; }
+    .floating-reserve:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    @media (max-width: 992px){
+      .main-card{ flex-direction:column; }
+      .featured-img{ height:360px; }
+      .info-box{ padding:40px 24px; }
+      .actions{ grid-template-columns:1fr; }
+      .grid-2{ grid-template-columns:1fr; }
+      nav{ padding:12px 5%; }
+      .nav-links{ display:none; }
+    }
+    @media (max-width: 768px){
+      .floating-reserve { right: 16px; bottom: 16px; padding: 14px 18px; font-size: .95rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#top" class="logo"><i class="fa-solid fa-building"></i> 永隆陞建設</a>
+    <div class="nav-links">
+      <a href="#project">建案資訊</a>
+      <a href="#highlights">建案亮點</a>
+      <a href="#plan">規劃格局</a>
+      <a href="#photo">相簿</a>
+      <a href="#map">地圖位置</a>
+
+      <a href="tel:0938397486" class="nav-phone">
+        <i class="fa-solid fa-phone"></i> 0938397486
+      </a>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSYzaNq2F4Tb1A66rTaRnDqEkq0aCleM2to0B8-BimEHCJgw/viewform"
+         target="_blank" rel="noopener"
+         class="nav-cta">
+        預約賞屋
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <h1>職人建築．景上居</h1>
+    <p>十期核心 / 精品電梯店墅 / 全新完工</p>
+    <div class="hero-actions">
+      <a class="pill primary" href="tel:0938397486"><i class="fa-solid fa-phone"></i> 立即來電 0938397486</a>
+      <a class="pill"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSeSYzaNq2F4Tb1A66rTaRnDqEkq0aCleM2to0B8-BimEHCJgw/viewform"
+         target="_blank" rel="noopener">
+        <i class="fa-regular fa-calendar-check"></i> 線上預約
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="main-card" id="revealCard">
+      <section class="gallery-wrap" aria-label="建案相簿">
+        <div id="main-view" class="featured-img" style="background-image:url('images/img-04-entrance.jpg')">
+          <div class="featured-badge">景上居｜示意圖</div>
+        </div>
+
+        <div class="thumb-grid" id="thumbGrid">
+          <div class="thumb active" data-url="images/img-02-entrance.jpg" style="background-image:url('images/img-02-entrance.jpg')"></div>
+          <div class="thumb" data-url="images/img-04-livingroom.jpg" style="background-image:url('images/img-04-livingroom.jpg')"></div>
+          <div class="thumb" data-url="images/img-03-sunroom.jpg" style="background-image:url('images/img-03-sunroom.jpg')"></div>
+          <div class="thumb" data-url="images/img-05-hall.jpg" style="background-image:url('images/img-05-hall.jpg')"></div>
+          <div class="thumb" data-url="images/img-06-terrace.jpg" style="background-image:url('images/img-06-terrace.jpg')"></div>
+          <div class="thumb" data-url="images/img-08-map.jpg" style="background-image:url('images/img-08-map.jpg')"></div>
+          <div class="thumb" data-url="images/img-01-bathroom.jpg" style="background-image:url('images/img-01-bathroom.jpg')"></div>
+          <div class="thumb" data-url="images/img-05-bathroom-gray.jpg" style="background-image:url('images/img-05-bathroom-gray.jpg')"></div>
+          <div class="thumb" data-url="images/img-06-bathroom-tub.jpg" style="background-image:url('images/img-06-bathroom-tub.jpg')"></div>
+        </div>
+
+        <p class="muted" style="margin:14px 2px 0; color:#b6c0cc;">
+          小提醒：可用鍵盤 ← / → 切換照片（電腦）或點縮圖切換
+        </p>
+      </section>
+
+      <section class="info-box" id="project" aria-label="建案資訊">
+        <span class="price-tag">總價 7,980 萬起</span>
+        <h2>永隆陞 景上居</h2>
+        <span class="sub-title">職人手作．頂級石材外觀</span>
+
+        <ul class="specs">
+          <li><b>建案位置</b> <span>台中市北屯區松竹五路二段253～259號</span></li>
+          <li><b>產品規劃</b> <span>地坪 34～55 坪 / 建坪 109～117 坪 / 地上5層</span></li>
+          <li><b>室內格局</b> <span>5 房格局產品 / 4戶店住</span></li>
+          <li><b>車位規劃</b> <span>1樓停車</span></li>
+        </ul>
+
+        <div class="actions">
+          <a href="tel:0938397486" class="btn btn-call">
+            <i class="fa-solid fa-phone"></i> 立即來電 0938397486
+          </a>
+        </div>
+
+        <div class="actions" style="margin-top:14px;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSYzaNq2F4Tb1A66rTaRnDqEkq0aCleM2to0B8-BimEHCJgw/viewform"
+             target="_blank" rel="noopener"
+             class="btn btn-call">
+            <i class="fa-regular fa-calendar-check"></i> 填寫預約表單
+          </a>
+        </div>
+
+        <div class="actions" style="margin-top:14px;">
+          <a href="https://newhouse.591.com.tw/133646"
+             target="_blank" rel="noopener"
+             class="btn btn-call"
+             style="background:#ea5455; border:none;">
+            <i class="fa-solid fa-building"></i> 在 591 上查看
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Highlights -->
+    <section class="section" id="highlights">
+      <h3>建案亮點</h3>
+      <div class="chips">
+        <div class="chip"><i class="fa-solid fa-elevator"></i> 電梯店住規劃</div>
+        <div class="chip"><i class="fa-solid fa-gem"></i> 精品廚衛配置</div>
+        <div class="chip"><i class="fa-solid fa-mountain-sun"></i> 十期核心地段</div>
+        <div class="chip"><i class="fa-solid fa-road"></i> 捷運＋74快速道路</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>特色說明</h4>
+          <p class="muted">
+            「永隆陞景上居」位於台中市北屯區松竹五路二段253～259號，由永隆陞建設有限公司投資興建，永東宜營造有限公司營造，傳築建築師事務所建築設計，基地面積162.19坪，建蔽率60%。
+          </p>
+          <p class="muted">
+            樓層規劃地上5層透天建築，共有4戶店住。坪數規劃地坪(34～55坪)，建坪(109～117坪)，5房格局產品。車位方面，規劃1樓停車，結構採RC鋼筋混凝土。
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>環境機能</h4>
+          <p class="muted">
+            周邊環境方面，車程約4～5分鐘可抵達學區建功國小，距東山完全中學約5～6分鐘車程，步行約6分鐘可至軍福公園。
+          </p>
+          <p class="muted">
+            生活採買方面，步行約7分鐘可達全聯福利中心(台中松五店)，車程約5分鐘可至好市多(北台中店)、楓康超市(東山店)及北屯軍功市場。
+          </p>
+          <p class="muted">
+            交通方面，步行約9分鐘可達捷運舊社站，亦有74號快速道路可利用。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan -->
+    <section class="section" id="plan">
+      <h3>規劃格局</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>空間配置</h4>
+          <p class="muted">地上5層透天店住｜5房格局產品，適合重視空間尺度、居住品質與自住需求的家庭型買方。</p>
+        </div>
+        <div class="card">
+          <h4>結構與車位</h4>
+          <p class="muted">結構採 RC 鋼筋混凝土，一樓規劃停車空間（實際仍依權狀與現場為準）。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo sections -->
+    <section class="section" id="photo">
+      <h3>實景相簿（分區）</h3>
+
+      <div class="gallery-sections">
+        <h2>建案外觀</h2>
+        <div class="gallery">
+          <img src="images/img-07-building.jpg" alt="景上居 建築外觀">
+          <img src="images/img-02-entrance.jpg" alt="景上居 入口">
+        </div>
+      </div>
+
+      <div class="gallery-sections">
+        <h2>室內空間</h2>
+        <div class="gallery">
+          <img src="images/img-04-livingroom.jpg" alt="客廳空間">
+          <img src="images/img-05-interior.jpg" alt="室內空間">
+          <img src="images/img-03-hall.jpg" alt="走道空間">
+          <img src="images/img-03-sunroom.jpg" alt="日光房 / 採光空間">
+        </div>
+      </div>
+
+      <div class="gallery-sections">
+        <h2>精品衛浴</h2>
+        <div class="gallery">
+          <img src="images/img-01-bathroom.jpg" alt="衛浴空間">
+          <img src="images/img-05-bathroom-gray.jpg" alt="衛浴空間（灰）">
+          <img src="images/img-06-bathroom-tub.jpg" alt="主臥浴缸衛浴">
+        </div>
+      </div>
+
+      <div class="gallery-sections">
+        <h2>露台與戶外</h2>
+        <div class="gallery">
+          <img src="images/img-06-terrace.jpg" alt="露台空間">
+          <img src="images/img-03-garage.jpg" alt="車庫空間">
+        </div>
+      </div>
+
+      <div class="gallery-sections map">
+        <h2>建案位置（圖片）</h2>
+        <img src="images/img-08-map.jpg" alt="景上居 地圖位置">
+      </div>
+    </section>
+
+    <!-- Map (Google) -->
+    <section class="section" id="map">
+      <h3>地圖位置</h3>
+      <p class="muted">台中市北屯區松竹五路二段253～259號</p>
+
+      <iframe
+        class="map-embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8C%97%E5%B1%AF%E5%8D%80%E6%9D%BE%E7%AB%B9%E4%BA%94%E8%B7%AF%E4%BA%8C%E6%AE%B5253%E8%99%9F&output=embed">
+      </iframe>
+    </section>
+
+    <section class="section" id="reserve">
+      <h3>線上預約賞屋</h3>
+      <p class="muted">請點擊下方按鈕填寫預約資料，我們將盡快與您聯繫。</p>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSYzaNq2F4Tb1A66rTaRnDqEkq0aCleM2to0B8-BimEHCJgw/viewform"
+         target="_blank" rel="noopener"
+         class="btn btn-call"
+         style="margin-top:16px; max-width:360px;">
+        <i class="fa-regular fa-calendar-check"></i> 填寫預約表單
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>永隆陞建設有限公司</p>
+    <p>接待中心：台中市大里區永隆路377號1樓</p>
+    <p>預約賞屋：<a href="tel:0938397486">0938397486</a></p>
+    <p style="margin-top:18px; opacity:.55;">&copy; 2026 YONG LONG SHENG. All Rights Reserved.</p>
+  </footer>
+
+  <a class="floating-reserve"
+     href="https://docs.google.com/forms/d/e/1FAIpQLSeSYzaNq2F4Tb1A66rTaRnDqEkq0aCleM2to0B8-BimEHCJgw/viewform"
+     target="_blank" rel="noopener">
+    <i class="fa-regular fa-calendar-check"></i>
+    預約賞屋
+  </a>
+
+  <script>
+    const thumbs = Array.from(document.querySelectorAll(".thumb"));
+    const main = document.getElementById("main-view");
+    let currentIndex = 0;
+
+    function setActive(index){
+      const url = thumbs[index].dataset.url;
+      main.style.opacity = "0";
+      main.style.transform = "scale(1.01)";
+      setTimeout(() => {
+        main.style.backgroundImage = `url('${url}')`;
+        main.style.opacity = "1";
+        main.style.transform = "scale(1)";
+      }, 220);
+
+      thumbs.forEach(t => t.classList.remove("active"));
+      thumbs[index].classList.add("active");
+      currentIndex = index;
+    }
+
+    thumbs.forEach((t, i) => t.addEventListener("click", () => setActive(i)));
+
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowLeft") setActive((currentIndex - 1 + thumbs.length) % thumbs.length);
+      if(e.key === "ArrowRight") setActive((currentIndex + 1) % thumbs.length);
+    });
+
+    const reveal = (el) => el.classList.add("visible");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) reveal(entry.target); });
+    }, { threshold: 0.12 });
+
+    io.observe(document.getElementById("revealCard"));
+    document.querySelectorAll(".section").forEach(sec => io.observe(sec));
+  </script>
+</body>
+</html>
